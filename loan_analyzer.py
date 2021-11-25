@@ -74,7 +74,6 @@ print(f"\nFuture Value: ${future_value:,.2f}\nRemaining Months: {remaining_month
 # Use a minimum required return of 20% as the discount rate.
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
-
 present_value = future_value / (1 + 0.2 / 12) ** remaining_months
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
@@ -223,5 +222,6 @@ with open(output_path, 'w', newline='') as csvfile:
     # Write the header to the CSV file.
     csvwriter.writerow(header)
 
+    # Write the inexpensive loans to the CSV file.
     for loan in inexpensive_loans:
         csvwriter.writerow(loan.values())
