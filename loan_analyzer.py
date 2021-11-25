@@ -65,7 +65,9 @@ loan = {
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
-# YOUR CODE HERE!
+future_value = loan.get("future_value", "Key not found in 'loan' dictionary...")
+remaining_months = loan.get("remaining_months", "Key not found in 'loan' dictionary...")
+print(f"\nFuture Value: ${future_value:,.2f}\nRemaining Months: {remaining_months}")
 
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
@@ -73,13 +75,16 @@ loan = {
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 
-# YOUR CODE HERE!
+present_value = future_value / (1 + 0.2 / 12) ** remaining_months
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
-# YOUR CODE HERE!
+if present_value >= loan.get("loan_price", "Key not found in 'loan' dictionary..."):
+    print(f"\nThe loan is worth at least the cost to buy it.")
+else:
+    print(f"\nThe loan is too expensive and not worth the price.")
 
 
 """Part 3: Perform Financial Calculations.
@@ -110,7 +115,7 @@ new_loan = {
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-print(f"The present value of the loan is: {present_value}")
+print(f"\nThe present value of the loan is: ${present_value:,.2f}")
 
 
 """Part 4: Conditionally filter lists of loans.
