@@ -138,7 +138,7 @@ present_value = calc_present_value(
     new_loan["remaining_months"],
     0.2
 )
-print(f"\nThe present value of the loan is: ${present_value:,.2f}")
+print(f"\nThe present value of the loan is: ${present_value:,.2f}\n")
 
 
 """Part 4: Conditionally filter lists of loans.
@@ -180,13 +180,18 @@ loans = [
 ]
 
 # @TODO: Create an empty list called `inexpensive_loans`
-# YOUR CODE HERE!
+inexpensive_loans = []
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
-# YOUR CODE HERE!
+for loan in loans:
+    if loan['loan_price'] <= 500:
+        print("Deal.")
+        inexpensive_loans.append(loan)
+    else:
+        print("No deal.")
 
 # @TODO: Print the `inexpensive_loans` list
-# YOUR CODE HERE!
+print("\nInexpensive Loans:", inexpensive_loans)
 
 
 """Part 5: Save the results.
